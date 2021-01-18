@@ -3,6 +3,7 @@ package com.example.social_media_app_firebase;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null){
             // transit to next activity
+            transitionToSocialMediaActivity();
         }
 
     }
@@ -71,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Toast.makeText(MainActivity.this, "Sign up is successful.",
                                     Toast.LENGTH_SHORT).show();
+                            FirebaseDatabase
+                            transitionToSocialMediaActivity();
                         } else {
                             Toast.makeText(MainActivity.this, "Sign up failed.",
                                     Toast.LENGTH_SHORT).show();
@@ -86,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Toast.makeText(MainActivity.this, "Sign is successful.",
                             Toast.LENGTH_SHORT).show();
+                    transitionToSocialMediaActivity();
 
                 } else {
                     Toast.makeText(MainActivity.this, "Sign is  failed.",
@@ -95,5 +100,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void transitionToSocialMediaActivity() {
+        Intent intent = new Intent(this, SocialMediaActivity.class);
+        startActivity(intent);
     }
 }
