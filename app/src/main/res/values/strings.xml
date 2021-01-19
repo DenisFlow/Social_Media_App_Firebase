@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Social_Media_App_Firebase</string>
+    <string name="urlbase">https://social-media-app-firebas-88f1a-default-rtdb.firebaseio.com/</string>
 </resources>
