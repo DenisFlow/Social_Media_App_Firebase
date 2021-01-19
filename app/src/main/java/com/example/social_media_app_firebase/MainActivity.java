@@ -16,6 +16,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -73,7 +75,12 @@ public class MainActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Toast.makeText(MainActivity.this, "Sign up is successful.",
                                     Toast.LENGTH_SHORT).show();
-                            FirebaseDatabase
+//                            DatabaseRefernce mdatabaseref=FirebaseDatabase.getInstance().getReferenceFromUrl(url);.
+//                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://social-media-app-firebas-88f1a-default-rtdb.firebaseio.com/");
+//                            databaseReference.child("my_users").child(task.getResult().getUser().getUid()).child("username").setValue(edtUserName.getText().toString());
+//                            FirebaseDatabase.getInstance().getReference().child("my_users").child(task.getResult().getUser().getUid()).child("username").setValue(edtUserName.getText().toString());
+                            FirebaseDatabase.getInstance("https://social-media-app-firebas-88f1a-default-rtdb.firebaseio.com/").getReference().child("my_users").child(task.getResult().getUser().getUid()).child("username").setValue(edtUserName.getText().toString());
+
                             transitionToSocialMediaActivity();
                         } else {
                             Toast.makeText(MainActivity.this, "Sign up failed.",
@@ -90,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Toast.makeText(MainActivity.this, "Sign is successful.",
                             Toast.LENGTH_SHORT).show();
+//                    FirebaseDatabase.getInstance().getReference().child("my_users").child(task.getResult().getUser().getUid()).child("username").setValue(edtUserName.getText().toString());
                     transitionToSocialMediaActivity();
 
                 } else {

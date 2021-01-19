@@ -6,6 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -13,11 +18,35 @@ public class SocialMediaActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
+    private Button btnCreatePost;
+    private EditText edtDescription;
+    private ListView listViewUsers;
+    private ImageView imageViewPost;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_social_media);
         mAuth = FirebaseAuth.getInstance();
+
+        btnCreatePost = findViewById(R.id.btnCreatePost);
+        edtDescription = findViewById(R.id.edtDescription);
+        listViewUsers = findViewById(R.id.listViewUsers);
+        imageViewPost = findViewById(R.id.imageViewPost);
+
+        btnCreatePost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        imageViewPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override
